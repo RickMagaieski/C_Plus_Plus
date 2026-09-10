@@ -5,19 +5,32 @@ using namespace std;
 int main()
 {
 
-    const string course_name = "Introduction to Programming (CMSC140)";
-    const string programming_language = "C++";
-    string class_location = "Room SW213"; 
-    string class_time = "TTR 2:00 PM - 3:15 PM";
+    double regularWages,
+          basePayRate,
+          regularHours,
+          overtimeWages,
+          overtimePayRate,
+          overtimeHours,
+          totalWages;      
 
-    cout << " " << endl;
+    cout << "Enter the base pay rate: \n";
+    cin >> basePayRate;
 
-    cout << "Course Name: " << course_name << endl
-     << "Programming Language: " << programming_language << endl 
-     << "Class Room Location: " << class_location << endl 
-     << "Class Time: " << class_time << endl;
+    cout << "Enter the hours worked (regular): \n";
+    cin >> regularHours;
 
-    cout << " "; 
+    cout << "Enter the overtime pay rate: \n";
+    cin >> overtimePayRate;
 
-    return 0;
+    cout << "Enter the overtime hours worked: \n";
+    cin >> overtimeHours;
+
+   regularWages = basePayRate * regularHours; 
+   overtimeWages = overtimePayRate * overtimeHours;
+   totalWages = regularWages + overtimeWages;
+   
+   cout << "Wages for this week are $" << totalWages << endl;
+
+   return 0;
+   
 }

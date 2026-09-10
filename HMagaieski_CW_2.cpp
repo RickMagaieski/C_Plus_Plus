@@ -1,19 +1,25 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 int main()
 {
 
-    const string COURSE_NAME = "Introduction to Programming (CMSC140)";
-    const string PROGRAMMING_LANGUAGE = "C++";
+    const string courseName = "Introduction to Programming (CMSC140)";
+    const string programmingLanguage = "C++";
+
     string classLocation = "Room SW213"; 
     string classTime = "TTR 2:00 PM - 3:15 PM";
 
+    cout << " " << endl;
 
-    cout << "Course Name: " << COURSE_NAME << endl
-     << "Programming Language: " << PROGRAMMING_LANGUAGE << endl 
+    cout << "Course Name: " << courseName << endl
+     << "Programming Language: " << programmingLanguage << endl 
      << "Class Room Location: " << classLocation << endl 
      << "Class Time: " << classTime << endl;
+
+    cout << " " << endl;
 
     return 0;
 }
