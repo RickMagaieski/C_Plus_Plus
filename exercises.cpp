@@ -1,36 +1,39 @@
-#include <iostream>
+// This program asks for sales amounts for 3 days. The total
+// sales are calculated and displayed in a table.
 
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main()
 {
+   double day1, day2, day3, total;
 
-    double regularWages,
-          basePayRate,
-          regularHours,
-          overtimeWages,
-          overtimePayRate,
-          overtimeHours,
-          totalWages;      
-
-    cout << "Enter the base pay rate: \n";
-    cin >> basePayRate;
-
-    cout << "Enter the hours worked (regular): \n";
-    cin >> regularHours;
-
-    cout << "Enter the overtime pay rate: \n";
-    cin >> overtimePayRate;
-
-    cout << "Enter the overtime hours worked: \n";
-    cin >> overtimeHours;
-
-   regularWages = basePayRate * regularHours; 
-   overtimeWages = overtimePayRate * overtimeHours;
-   totalWages = regularWages + overtimeWages;
+   // Get the sales for each day.
+   cout << "Enter the sales for day 1: ";
+   cin >> day1;
+   cout << "Enter the sales for day 2: ";
+   cin >> day2;
+   cout << "Enter the sales for day 3: ";
+   cin >> day3;
    
-   cout << "Wages for this week are $" << totalWages << endl;
+   // Calculate the total sales.
+   total = day1 + day2 + day3;
+   
+   // Display the sales amounts.
+   cout << "\nSales Amounts\n";
+   cout << "------------------\n";
+
+   cout << setprecision(2) << fixed;
+
+   cout << "Day 1: " << setw(8) << day1 << endl;
+   cout << "Day 2: " << setw(8) << day2 << endl; // You must write them (setw()) in between the spaces
+   cout << "Day 3: " << setw(8) << day3 << endl;
+
+   cout << "|" << endl;
+   
+   cout << "Total: " << setw(8) << total << endl;
+   cout << "------------------\n";
 
    return 0;
-   
-}
+} 
