@@ -1,7 +1,7 @@
 /*
 * Class: CMSC140 CRN 20808
 * Instructor: Mr. Huseyin Aygun 
-* Project 1
+* Project: Classwork 1
 * Description: This program will print some pertinent information about my course and about myself.
 * Due Date: 09/07/2026
 * I pledge that I have completed the programming assignment independently.
