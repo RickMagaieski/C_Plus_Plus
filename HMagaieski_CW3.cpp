@@ -51,16 +51,16 @@ int main()
 
     cout << " \n";
 
-    cout << "*********************************************************\n";
+    cout << "****************************************************\n";
     cout << "Student's Final Summary: " << setw(5) << studentName << endl;
 
     cout << " \n";
 
     cout << "Final Score: " << setw(6) << static_cast<int>(totalScore) << endl;
     cout << "Average Score: " << setw(6) << averageScore << endl;
-    cout << "*********************************************************\n";
+    cout << "****************************************************\n";
 
     cout << " \n";
-
+    
     return 0;
 }

@@ -9,7 +9,7 @@ int main()
     double const COST_PER_CUBIC_FOOT = 0.23, CHARGE_PER_CUBIC_FOOT = 0.5;
     double length, width, height, volume, cost, charge, profit;
 
-    cout << setprecision(2) << fixed << showpoint;
+    cout << setprecision(2) << fixed << showpoint; // showpoint means to show the decimal point and trailing zeros for floating-point numbers
 
     cout << "Enter the length of the crate in feet: ";
     cin >> length;
