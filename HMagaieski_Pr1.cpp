@@ -3,7 +3,7 @@
 * Course: CMSC140 - CRN 20808
 * Semester: Fall 2026
 * Project: Personal Finance Calculator - Project 1
-* Description: This program will print some pertinent information about my course.
+* Description: This is a Personal Finance Calculator to help with a financial summary.
 * Due Date: 09/28/2026
 * I pledge that I have completed the programming assignment independently.
 * I have not copied the code from a student or any source.
@@ -41,16 +41,16 @@ int main()
     cout << "Please enter your full name: \n";
     getline(cin, fullName);
 
-    cout << "Please enter your monthly gross income: \n";
+    cout << "Enter your monthly gross income: \n";
     cin >> monthlyIncome;
 
-    cout << "Please enter your monthly grocery expenses: \n";
+    cout << "Enter your monthly grocery expenses: \n";
     cin >> monthlyGrocery;
 
-    cout << "Please enter your monthly utilities expenses: \n";
+    cout << "Enter your monthly utilities expenses: \n";
     cin >> monthlyUtilities;
 
-    cout << "Please enter your monthly rent: \n";
+    cout << "Enter your monthly rent: \n";
     cin >> monthlyRent;
 
     monthlyExpenses = monthlyGrocery + monthlyUtilities + monthlyRent;
