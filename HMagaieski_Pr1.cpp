@@ -38,19 +38,19 @@ int main()
 
     cout << " \n";
 
-    cout << "Please enter your full name: \n";
+    cout << "Please enter your full name: ";
     getline(cin, fullName);
 
-    cout << "Enter your monthly gross income: \n";
+    cout << "Enter your monthly gross income: ";
     cin >> monthlyIncome;
 
-    cout << "Enter your monthly grocery expenses: \n";
+    cout << "Enter your monthly grocery expenses: ";
     cin >> monthlyGrocery;
 
-    cout << "Enter your monthly utilities expenses: \n";
+    cout << "Enter your monthly utilities expenses: ";
     cin >> monthlyUtilities;
 
-    cout << "Enter your monthly rent: \n";
+    cout << "Enter your monthly rent: ";
     cin >> monthlyRent;
 
     monthlyExpenses = monthlyGrocery + monthlyUtilities + monthlyRent;
