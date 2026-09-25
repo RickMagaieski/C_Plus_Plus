@@ -19,8 +19,12 @@ int main()
 {
 
     const double TAX_RATE = 0.15; // 15% tax rate
-    const string COURSE = "CMSC140 CRN 20808", PROGRAMMER_NAME = "Henrique Magaieski", 
-    SEMESTER = "Fall 2026", PROJECT = "Personal Finance Calculator", DUE_DATE = "09/28/2026"; 
+    const string 
+    COURSE = "CMSC140 CRN 20808", 
+    PROGRAMMER_NAME = "Henrique Magaieski", 
+    SEMESTER = "Fall 2026", 
+    PROJECT = "Personal Finance Calculator", 
+    DUE_DATE = "09/28/2026"; 
 
     string fullName;
     double monthlyIncome, monthlyGrocery, monthlyUtilities, monthlyRent, 
