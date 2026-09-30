@@ -22,7 +22,8 @@ int main()
 
     cout << fixed << showpoint << setprecision(2);
 
-    double ticketsSold, grossTotal, discountOne, discountTwo, discountThree, discountFour;
+    double grossTotal, discountOne, discountTwo, discountThree, discountFour;
+    int ticketsSold;
 
     cout << " \n";
 
@@ -32,14 +33,14 @@ int main()
 
     grossTotal = ticketsSold * TICKET_PRICE;
 
-     if (ticketsSold == 0)
+     if (ticketsSold <= 0)
     {
 
         cout << "Tickets sold must be greater than zero. \n";
 
     }
 
-    if (ticketsSold > 0 && ticketsSold < 3)
+    else if (ticketsSold > 0 && ticketsSold < 3)
     {
 
         cout << "The total cost of the purchase is $" << grossTotal << endl;
@@ -47,7 +48,7 @@ int main()
     }
     
 
-    if (ticketsSold >= 3 && ticketsSold <= 4)
+    else if (ticketsSold >= 3 && ticketsSold <= 4)
     {
 
         discountOne = grossTotal - (grossTotal * THREE_TO_FOUR_DAYS);
@@ -55,7 +56,7 @@ int main()
         
     }
 
-    if (ticketsSold >= 5 && ticketsSold <=6) 
+    else if (ticketsSold >= 5 && ticketsSold <=6) 
     {
 
         discountTwo = grossTotal - (grossTotal * FIVE_TO_SIX_DAYS);
@@ -63,7 +64,7 @@ int main()
 
     }
 
-    if (ticketsSold >= 7 && ticketsSold <=9)
+    else if (ticketsSold >= 7 && ticketsSold <=9)
     {
 
         discountThree = grossTotal - (grossTotal * SEVEN_TO_NINE_DAYS);
@@ -71,7 +72,7 @@ int main()
 
     }
 
-    if (ticketsSold >= 10)
+    else if (ticketsSold >= 10)
     {
 
         discountFour = grossTotal - (grossTotal * TEN_PLUS_DAYS);

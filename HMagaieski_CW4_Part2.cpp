@@ -2,7 +2,8 @@
 * Class: CMSC140 CRN 20808
 * Instructor: Mr. Huseyin Aygun
 * Project: Classwork 4 Part 2
-* Description: (Give a brief description for Project)
+* Description: This program calculates the total price of a custom sign
+* based on the number of colors, lighting, and sign removal.
 * Due Date: 10/12/2026
 * I pledge that I have completed the programming assignment independently.
 * I have not copied the code from a student or any source.
@@ -27,6 +28,8 @@ int main()
 
     cout << " \n";
 
+    cout << "***************************************************\n";
+
     cout << "Enter the number of colors in the sign: ";
     cin >> colorNumber;
 
@@ -40,6 +43,8 @@ int main()
             cout << "Do you need an old sign removed (y/n)? ";
             cin >> removalSign;
 
+            cout << "***************************************************\n";
+
             cout << " \n";
 
         switch (colorNumber)
@@ -48,7 +53,7 @@ int main()
             {
 
                 const double COLOR_PRICE = 250.00;
-                double colorCharge25, colorCharge10;
+                double colorCharge25 = 0.00, colorCharge10 = 0.00;
 
                 if (lightSign == 'y' or lightSign == 'Y')
                 {
@@ -60,7 +65,7 @@ int main()
                     colorCharge10 = COLOR_PRICE * 0.10;
                 }
 
-                cout << "The price is: " << (colorCharge25 + colorCharge10) + COLOR_PRICE<< endl;
+                cout << "The price is: " << "$" << (colorCharge25 + colorCharge10) + COLOR_PRICE<< endl;
 
                 break;
             }
@@ -68,7 +73,7 @@ int main()
             case 2:
             {
                 const double COLOR_PRICE2 = 325.00;
-                double colorCharge25, colorCharge10;
+                double colorCharge25 = 0.00, colorCharge10 = 0.00;
 
                 if (lightSign == 'y' or lightSign == 'Y')
                 {
@@ -80,7 +85,7 @@ int main()
                     colorCharge10 = COLOR_PRICE2 * 0.10;
                 }
 
-                cout << "The price is: " << (colorCharge25 + colorCharge10) + COLOR_PRICE2 << endl;
+                cout << "The price is: " << "$" << (colorCharge25 + colorCharge10) + COLOR_PRICE2 << endl;
                 
                 break;
             }
@@ -88,11 +93,11 @@ int main()
             case 3:
             {
                 const double COLOR_PRICE3 = 450.00;
-                double colorCharge25, colorCharge10;
+                double colorCharge25 = 0.00, colorCharge10 = 0.00;
 
                 if (lightSign == 'y' or lightSign == 'Y')
                 {
-                    colorCharge25 = (COLOR_PRICE3 * 0.25) + COLOR_PRICE3;
+                    colorCharge25 = COLOR_PRICE3 * 0.25;
                 }
 
                 if (removalSign == 'y' or removalSign == 'Y')
@@ -100,7 +105,7 @@ int main()
                     colorCharge10 = COLOR_PRICE3 * 0.10;
                 }
 
-                cout << "The price is: " << (colorCharge25 + colorCharge10) + COLOR_PRICE3 << endl;
+                cout << "The price is: " << "$" << (colorCharge25 + colorCharge10) + COLOR_PRICE3 << endl;
                 
                 break;
             }
@@ -108,7 +113,7 @@ int main()
             case 4:
             {
                 const double COLOR_PRICE4 = 625.00;
-                double colorCharge25, colorCharge10 ;
+                double colorCharge25 = 0.00, colorCharge10 = 0.00;
 
                 if (lightSign == 'y' or lightSign == 'Y')
                 {
@@ -120,7 +125,7 @@ int main()
                     colorCharge10 = COLOR_PRICE4 * 0.10;
                 }
 
-                cout << "The price is: " << (colorCharge25 + colorCharge10) + COLOR_PRICE4 << endl;
+                cout << "The price is: " << "$" << (colorCharge25 + colorCharge10) + COLOR_PRICE4 << endl;
 
                 break;
             }
@@ -128,7 +133,7 @@ int main()
             case 5: 
             {
                 const double COLOR_PRICE5 = 850.00;
-                double  colorCharge25, colorCharge10;
+                double  colorCharge25 = 0.00, colorCharge10 = 0.00;
 
                 if (lightSign == 'y' or lightSign == 'Y')
                 {
@@ -140,7 +145,7 @@ int main()
                     colorCharge10 = COLOR_PRICE5 * 0.10;
                 }
 
-                cout << "The price is: " << (colorCharge25 + colorCharge10) + COLOR_PRICE5 << endl;
+                cout << "The price is: " << "$" << (colorCharge25 + colorCharge10) + COLOR_PRICE5 << endl;
 
                 break;
             }
@@ -148,19 +153,19 @@ int main()
             default:
             {
                 const double COLOR_PRICE5 = 850.00;
-            double  colorCharge25, colorCharge10;
+                double  colorCharge25 = 0.00, colorCharge10 = 0.00;
 
-            if (lightSign == 'y' or lightSign == 'Y')
-            {
-                colorCharge25 = COLOR_PRICE5 * 0.25;
-            }
+                if (lightSign == 'y' or lightSign == 'Y')
+                {
+                    colorCharge25 = COLOR_PRICE5 * 0.25;
+                }
 
-            if (removalSign == 'y' or removalSign == 'Y')
-            {
-                colorCharge10 = COLOR_PRICE5 * 0.10;
-            }
+                if (removalSign == 'y' or removalSign == 'Y')
+                {
+                    colorCharge10 = COLOR_PRICE5 * 0.10;
+                }
 
-            cout << "The price is: " << (colorCharge25 + colorCharge10) + COLOR_PRICE5 << endl;
+                cout << "The price is: " << "$" << (colorCharge25 + colorCharge10) + COLOR_PRICE5 << endl;
             }
         }
     }
