@@ -28,7 +28,7 @@ int main()
 
     cout << " \n";
 
-    cout << "***************************************************\n";
+    cout << "*******************************************************\n";
 
     cout << "Enter the number of colors in the sign: ";
     cin >> colorNumber;
@@ -43,7 +43,7 @@ int main()
             cout << "Do you need an old sign removed (y/n)? ";
             cin >> removalSign;
 
-            cout << "***************************************************\n";
+            cout << "*******************************************************\n";
 
             cout << " \n";
 
@@ -173,6 +173,7 @@ int main()
     else
     {
         cout << "Invalid number of colors; it must be greater than zero.\n";
+        cout << "*******************************************************\n";
     }
 
     cout << " \n";
