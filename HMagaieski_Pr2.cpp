@@ -30,10 +30,10 @@ int main ()
     
     string fullName1, fullName2;
     int studentId1,studentId2, studentAge1, 
-    studentAge2, studentScore1, studentScore2;
-    double averageScore;
+    studentAge2, count;
+    double averageScore, studentScore1, studentScore2;
 
-    cout << fixed << setprecision(2) << showpoint;
+    cout << fixed << setprecision(1) << showpoint;
 
 
     cout << " \n";
@@ -99,8 +99,10 @@ int main ()
         if (studentScore1 <= 100 && studentScore1 >= 95)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
-            fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1) 
+            fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
             << setw(16) << GRADE_A_PLUS;
+
+            count += 1;
 
             switch (GRADE_A)
             {
@@ -114,8 +116,10 @@ int main ()
         else if (studentScore1 < 95 && studentScore1 >= 93)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
-            fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1)  
+            fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1  
             << setw(16) << GRADE_A;
+
+            count += 1;
 
             switch (GRADE_A)
             {
@@ -129,8 +133,10 @@ int main ()
         else if (studentScore1 < 93 && studentScore1 >= 90)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
-            fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1) 
+            fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
             << setw(16) << GRADE_A_MINUS;
+            
+            count += 1;
 
             switch (GRADE_A)
             {
@@ -144,8 +150,10 @@ int main ()
         else if (studentScore1 < 90 && studentScore1 >= 87)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
-            fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1)
+            fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1
             << setw(16) << GRADE_B_PLUS;
+
+            count += 1;
 
             switch (GRADE_B)
             {
@@ -159,8 +167,10 @@ int main ()
         else if (studentScore1 < 87 && studentScore1 >= 83)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
-            fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1) 
+            fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
             << setw(16) << GRADE_B;
+
+            count += 1;
 
             switch (GRADE_B)
             {
@@ -174,8 +184,10 @@ int main ()
         else if (studentScore1 < 83 && studentScore1 >= 80)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
-            fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1) 
+            fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
             << setw(16) << GRADE_B_MINUS;
+
+            count += 1;
 
             switch (GRADE_B)
             {
@@ -189,8 +201,10 @@ int main ()
         else if (studentScore1 < 80 && studentScore1 >= 77)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
-            fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1) 
+            fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
             << setw(16) << GRADE_C_PLUS;
+
+            count += 1;
 
             switch (GRADE_C)
             {
@@ -204,8 +218,10 @@ int main ()
         else if (studentScore1 < 77 && studentScore1 >= 73)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
-            fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1) 
+            fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
             << setw(16) << GRADE_C;
+
+            count += 1;
 
             switch (GRADE_C)
             {
@@ -219,8 +235,10 @@ int main ()
         else if (studentScore1 < 73 && studentScore1 >= 70)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
-            fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1) 
+            fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
             << setw(16) << GRADE_C_MINUS;
+
+            count += 1;
 
             switch (GRADE_C)
             {
@@ -234,8 +252,10 @@ int main ()
         else if (studentScore1 < 70 && studentScore1 >= 67)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
-            fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1) 
+            fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
             << setw(16) << GRADE_D_PLUS;
+
+            count += 1;
 
             switch (GRADE_D)
             {
@@ -249,8 +269,10 @@ int main ()
         else if (studentScore1 < 67 && studentScore1 >= 63)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
-            fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1) 
+            fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
             << setw(16) << GRADE_D;
+
+            count += 1;
 
             switch (GRADE_D)
             {
@@ -264,8 +286,10 @@ int main ()
         else if (studentScore1 < 63 && studentScore1 >= 60)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
-            fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1) 
+            fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
             << setw(16) << GRADE_D_MINUS;
+
+            count += 1;
 
             switch (GRADE_D)
             {
@@ -279,8 +303,10 @@ int main ()
         else if (studentScore1 < 60 && studentScore2 > 0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
-            fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1) 
+            fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
             << setw(16) << GRADE_D_MINUS;
+
+            count += 1;
 
             switch (GRADE_F)
             {
@@ -293,9 +319,11 @@ int main ()
     }
 
     else 
-    {
+    {   
+        studentScore1 = 0.00;
+
         cout << left << setw(10) << studentId1 << left << setw(30) << 
-        fullName1 << right << setw(10) << studentAge1 << setw(17) << static_cast<double>(studentScore1 = 0.00) 
+        fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1
         << setw(16) << "N/A" << right << setw(30) << "Invalid Score" << endl;
     }
 
@@ -304,8 +332,10 @@ int main ()
         if (studentScore2 <= 100 && studentScore2 >= 95)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
-            fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2) 
+            fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
             << setw(16) << GRADE_A_PLUS;
+
+            count += 1;
 
             switch (GRADE_A)
             {
@@ -320,8 +350,10 @@ int main ()
         else if (studentScore2 < 95 && studentScore2 >= 93)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
-            fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2) 
+            fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2
             << setw(16) << GRADE_A;
+
+            count += 1;
 
             switch (GRADE_A)
             {
@@ -335,8 +367,10 @@ int main ()
         else if (studentScore2 < 93 && studentScore2 >= 90)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
-            fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2) 
+            fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
             << setw(16) << GRADE_A_MINUS;
+
+            count += 1;
 
             switch (GRADE_A)
             {
@@ -350,8 +384,10 @@ int main ()
         else if (studentScore2 < 90 && studentScore2 >= 87)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
-            fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2) 
+            fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
             << setw(16) << GRADE_B_PLUS;
+
+            count += 1;
 
             switch (GRADE_B)
             {
@@ -365,8 +401,10 @@ int main ()
         else if (studentScore2 < 87 && studentScore2 >= 83)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
-            fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2) 
+            fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
             << setw(16) << GRADE_B;
+
+            count += 1;
 
             switch (GRADE_B)
             {
@@ -380,8 +418,10 @@ int main ()
         else if (studentScore2 < 83 && studentScore2 >= 80)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
-            fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2) 
+            fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
             << setw(16) << GRADE_B_MINUS;
+
+            count += 1;
 
             switch (GRADE_B)
             {
@@ -395,8 +435,10 @@ int main ()
         else if (studentScore2 < 80 && studentScore2 >= 77)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
-            fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2) 
+            fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
             << setw(16) << GRADE_C_PLUS;
+
+            count += 1;
 
             switch (GRADE_C)
             {
@@ -410,8 +452,10 @@ int main ()
         else if (studentScore2 < 77 && studentScore2 >= 73)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
-            fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2) 
+            fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
             << setw(16) << GRADE_C;
+
+            count += 1;
 
             switch (GRADE_C)
             {
@@ -425,8 +469,10 @@ int main ()
         else if (studentScore2 < 73 && studentScore2 >= 70)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
-            fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2) 
+            fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
             << setw(16) << GRADE_C_MINUS;
+
+            count += 1;
 
             switch (GRADE_C)
             {
@@ -440,8 +486,10 @@ int main ()
         else if (studentScore2 < 70 && studentScore2 >= 67)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
-            fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2) 
+            fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
             << setw(16) << GRADE_D_PLUS;
+            
+            count += 1;
 
             switch (GRADE_D)
             {
@@ -455,8 +503,10 @@ int main ()
         else if (studentScore2 < 67 && studentScore2 >= 63)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
-            fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2) 
+            fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
             << setw(16) << GRADE_D;
+
+            count += 1;
 
             switch (GRADE_D)
             {
@@ -470,8 +520,10 @@ int main ()
         else if (studentScore2 < 63 && studentScore2 >= 60)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
-            fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2) 
+            fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
             << setw(16) << GRADE_D_MINUS;
+
+            count += 1;
 
             switch (GRADE_D)
             {
@@ -485,8 +537,10 @@ int main ()
         else if (studentScore2 < 60 && studentScore2 > 0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
-            fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2) 
+            fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
             << setw(16) << GRADE_D_MINUS;
+
+            count += 1;
 
             switch (GRADE_F)
             {
@@ -500,16 +554,18 @@ int main ()
 
     else 
     {
+        studentScore2 = 0.00;
+
         cout << left << setw(10) << studentId2 << left << setw(30) << 
-        fullName2 << right << setw(10) << studentAge2 << setw(17) << static_cast<double>(studentScore2 = 0.00) 
+        fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2
         << setw(16) << "N/A" << right << setw(30) << "Invalid Score" << endl;
     }
 
     cout << " \n";
 
-    averageScore = (static_cast<double>(studentScore1) + static_cast<double>(studentScore2)) / 2;
+    averageScore = (static_cast<double>(studentScore1) + static_cast<double>(studentScore2)) / count;
 
-    cout << "========================= CLAS SUMMARY ========================= \n";
+    cout << "========================= CLASS SUMMARY ========================= \n";
 
     if ((studentScore1 > 0 && studentScore1 <= 100) or (studentScore2 > 0 && studentScore2 <= 100))
     {
