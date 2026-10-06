@@ -2,7 +2,7 @@
 * Programmer: Henrique Magaieski
 * Course: CMSC140 - CRN 20808
 * Semester: Fall 2026
-* Project: Grade Calulator
+* Project: Grade Calculator
 * Description: 
 * Due Date: 10/12/2026
 * I pledge that I have completed the programming assignment independently.
@@ -22,16 +22,19 @@ int main ()
 
     const string GRADE_A_PLUS = "A+", GRADE_B_PLUS = "B+", GRADE_C_PLUS = "C+", GRADE_D_PLUS = "D+", 
     GRADE_A_MINUS = "A-", GRADE_B_MINUS = "B-", GRADE_C_MINUS = "C-", GRADE_D_MINUS = "D-", 
-    GRADE_REMARK_A = "Excellent Perfomance", GRADE_REMARK_B = "Good Perfomance", GRADE_REMARK_C = "Satisfactory Performance",
-    GRADE_REMARK_D = "Needs Improvement", GRADE_REMARK_F = "Unsatisfactory Perfomance",
-    PROGRAMMER_NAME = "Henrique Magaieski", COURSE_NAME = "CMSC140 - CRN20808", SEMESTER = "Fall 2026", 
-    PROJECT = "Project 2 - Grade Calculator", DUE_DATE = "10/12/2026";
+    GRADE_REMARK_A = "Excellent Performance", GRADE_REMARK_B = "Good Performance", GRADE_REMARK_C = "Satisfactory Performance",
+    GRADE_REMARK_D = "Needs Improvement", GRADE_REMARK_F = "Unsatisfactory Performance";
+
     const char GRADE_A = 'A', GRADE_B = 'B', GRADE_C = 'C', GRADE_D = 'D', GRADE_F = 'F';
+    char letterGradeRemark1, letterGradeRemark2;
     
     string fullName1, fullName2;
+
     int studentId1,studentId2, studentAge1, 
-    studentAge2, count;
+    studentAge2, count = 0;
+
     double averageScore, studentScore1, studentScore2;
+    bool validScore1 = false, validScore2 = false;
 
     cout << fixed << setprecision(1) << showpoint;
 
@@ -94,467 +97,380 @@ int main ()
     << setw(20) << "LETTER GRADE" << setw(20) << "GRADE REMARK" << endl;
     cout << "------------------------------------------------------------------------------------------------------------------- \n";
 
-    if (studentScore1 > 0 && studentScore1 <= 100)
+    if (studentScore1 >= 0.0 && studentScore1 <= 100.0)
     {
-        if (studentScore1 <= 100 && studentScore1 >= 95)
+        validScore1 = true;
+
+        if (studentScore1 <= 100.0 && studentScore1 >= 95.0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
             fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
-            << setw(16) << GRADE_A_PLUS;
+            << setw(16) << GRADE_A_PLUS << left << setw(12) << "";
+
+            letterGradeRemark1 = 'A';
 
             count += 1;
-
-            switch (GRADE_A)
-            {
-                case 'A':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_A << endl;
-                    }
-            }
         }
 
-        else if (studentScore1 < 95 && studentScore1 >= 93)
+        else if (studentScore1 < 95.0 && studentScore1 >= 93.0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
             fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1  
-            << setw(16) << GRADE_A;
+            << setw(16) << GRADE_A << left << setw(12) << "";
+
+            letterGradeRemark1 = 'A';
 
             count += 1;
-
-            switch (GRADE_A)
-            {
-                case 'A':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_A << endl;
-                    }
-            }
         }
 
-        else if (studentScore1 < 93 && studentScore1 >= 90)
+        else if (studentScore1 < 93.0 && studentScore1 >= 90.0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
             fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
-            << setw(16) << GRADE_A_MINUS;
+            << setw(16) << GRADE_A_MINUS << left << setw(12) << "";
+
+            letterGradeRemark1 = 'A';
             
             count += 1;
-
-            switch (GRADE_A)
-            {
-                case 'A':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_A << endl;
-                    }
-            }
         }
 
-        else if (studentScore1 < 90 && studentScore1 >= 87)
+        else if (studentScore1 < 90.0 && studentScore1 >= 87.0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
             fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1
-            << setw(16) << GRADE_B_PLUS;
+            << setw(16) << GRADE_B_PLUS << left << setw(12) << "";
+
+            letterGradeRemark1 = 'B';
 
             count += 1;
-
-            switch (GRADE_B)
-            {
-                case 'B':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_B << endl;
-                    }
-            }
         }
 
-        else if (studentScore1 < 87 && studentScore1 >= 83)
+        else if (studentScore1 < 87.0 && studentScore1 >= 83.0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
             fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
-            << setw(16) << GRADE_B;
+            << setw(16) << GRADE_B << left << setw(12) << "";
+
+            letterGradeRemark1 = 'B';
 
             count += 1;
-
-            switch (GRADE_B)
-            {
-                case 'B':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_B << endl;
-                    }
-            }
         }
 
-        else if (studentScore1 < 83 && studentScore1 >= 80)
+        else if (studentScore1 < 83.0 && studentScore1 >= 80.0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
             fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
-            << setw(16) << GRADE_B_MINUS;
+            << setw(16) << GRADE_B_MINUS << left << setw(12) << "";
+
+            letterGradeRemark1 = 'B';
 
             count += 1;
-
-            switch (GRADE_B)
-            {
-                case 'B':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_B << endl;
-                    }
-            }
         }
 
-        else if (studentScore1 < 80 && studentScore1 >= 77)
+        else if (studentScore1 < 80.0 && studentScore1 >= 77.0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
             fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
-            << setw(16) << GRADE_C_PLUS;
+            << setw(16) << GRADE_C_PLUS << left << setw(12) << "";
+
+            letterGradeRemark1 = 'C';
 
             count += 1;
-
-            switch (GRADE_C)
-            {
-                case 'C':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_C << endl;
-                    }
-            }
         }
 
-        else if (studentScore1 < 77 && studentScore1 >= 73)
+        else if (studentScore1 < 77.0 && studentScore1 >= 73.0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
             fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
-            << setw(16) << GRADE_C;
+            << setw(16) << GRADE_C << left << setw(12) << "";
+
+            letterGradeRemark1 = 'C';
 
             count += 1;
-
-            switch (GRADE_C)
-            {
-                case 'C':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_C << endl;
-                    }
-            }
         }
 
-        else if (studentScore1 < 73 && studentScore1 >= 70)
+        else if (studentScore1 < 73.0 && studentScore1 >= 70.0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
             fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
-            << setw(16) << GRADE_C_MINUS;
+            << setw(16) << GRADE_C_MINUS << left << setw(12) << "";
+            
+            letterGradeRemark1 = 'C';
 
             count += 1;
-
-            switch (GRADE_C)
-            {
-                case 'C':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_C << endl;
-                    }
-            }
         }
 
-        else if (studentScore1 < 70 && studentScore1 >= 67)
+        else if (studentScore1 < 70.0 && studentScore1 >= 67.0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
             fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
-            << setw(16) << GRADE_D_PLUS;
+            << setw(16) << GRADE_D_PLUS << left << setw(12) << "";
+
+            letterGradeRemark1 = 'D';
 
             count += 1;
-
-            switch (GRADE_D)
-            {
-                case 'D':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_D << endl;
-                    }
-            }
         }
         
-        else if (studentScore1 < 67 && studentScore1 >= 63)
+        else if (studentScore1 < 67.0 && studentScore1 >= 63.0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
             fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
-            << setw(16) << GRADE_D;
+            << setw(16) << GRADE_D << left << setw(12) << "";
+
+            letterGradeRemark1 = 'D';
 
             count += 1;
-
-            switch (GRADE_D)
-            {
-                case 'D':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_D << endl;
-                    }
-            }
         }
 
-        else if (studentScore1 < 63 && studentScore1 >= 60)
+        else if (studentScore1 < 63.0 && studentScore1 >= 60.0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
             fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
-            << setw(16) << GRADE_D_MINUS;
+            << setw(16) << GRADE_D_MINUS << left << setw(12) << "";
+
+            letterGradeRemark1 = 'D';
 
             count += 1;
-
-            switch (GRADE_D)
-            {
-                case 'D':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_D << endl;
-                    }
-            }
         }
 
-        else if (studentScore1 < 60 && studentScore2 > 0)
+        else if (studentScore1 < 60.0 && studentScore1 >= 0.0)
         {
             cout << left << setw(10) << studentId1 << left << setw(30) << 
             fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1 
-            << setw(16) << GRADE_D_MINUS;
+            << setw(16) << GRADE_F << left << setw(12) << "";
+
+            letterGradeRemark1 = 'F';
 
             count += 1;
+        }
 
-            switch (GRADE_F)
+        switch (letterGradeRemark1)
+        {
+            case 'A':
             {
-                case 'F':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_F << endl;
-                    }
+                cout << left << setw(1) << GRADE_REMARK_A << endl;
+                break;
+            }
+
+            case 'B':
+            {
+                cout << left << setw(1) << GRADE_REMARK_B << endl;
+                break;
+            }
+
+            case 'C':
+            {
+                cout << left << setw(1) << GRADE_REMARK_C << endl;
+                break;
+            }
+
+            case 'D':
+            {
+                cout << left << setw(1) << GRADE_REMARK_D << endl;
+                break;
+            }
+
+            case 'F':
+            {
+                cout << left << setw(1) << GRADE_REMARK_F << endl;
+                break;
             }
         }
     }
 
     else 
     {   
-        studentScore1 = 0.00;
+        studentScore1 = 0.0;
 
         cout << left << setw(10) << studentId1 << left << setw(30) << 
         fullName1 << right << setw(10) << studentAge1 << setw(17) << studentScore1
         << setw(16) << "N/A" << right << setw(30) << "Invalid Score" << endl;
     }
 
-    if (studentScore2 > 0 && studentScore2 <= 100)
+    if (studentScore2 >= 0.0 && studentScore2 <= 100.0)
     {
-        if (studentScore2 <= 100 && studentScore2 >= 95)
+        validScore2 = true;
+
+        if (studentScore2 <= 100.0 && studentScore2 >= 95.0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
             fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
-            << setw(16) << GRADE_A_PLUS;
+            << setw(16) << GRADE_A_PLUS << left << setw(12) << "";
+
+            letterGradeRemark2 = 'A';
 
             count += 1;
-
-            switch (GRADE_A)
-            {
-                case 'A':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_A << endl;
-                    }
-            }
-
         }
 
-        else if (studentScore2 < 95 && studentScore2 >= 93)
+        else if (studentScore2 < 95.0 && studentScore2 >= 93.0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
             fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2
-            << setw(16) << GRADE_A;
+            << setw(16) << GRADE_A << left << setw(12) << "";
+
+            letterGradeRemark2 = 'A';
 
             count += 1;
-
-            switch (GRADE_A)
-            {
-                case 'A':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_A << endl;
-                    }
-            }
         }
 
-        else if (studentScore2 < 93 && studentScore2 >= 90)
+        else if (studentScore2 < 93.0 && studentScore2 >= 90.0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
             fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
-            << setw(16) << GRADE_A_MINUS;
+            << setw(16) << GRADE_A_MINUS << left << setw(12) << "";
+
+            letterGradeRemark2 = 'A';
 
             count += 1;
-
-            switch (GRADE_A)
-            {
-                case 'A':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_A << endl;
-                    }
-            }
         }
 
-        else if (studentScore2 < 90 && studentScore2 >= 87)
+        else if (studentScore2 < 90.0 && studentScore2 >= 87.0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
             fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
-            << setw(16) << GRADE_B_PLUS;
+            << setw(16) << GRADE_B_PLUS << left << setw(12) << "";
+
+            letterGradeRemark2 = 'B';
 
             count += 1;
-
-            switch (GRADE_B)
-            {
-                case 'B':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_B << endl;
-                    }
-            }
         }
 
-        else if (studentScore2 < 87 && studentScore2 >= 83)
+        else if (studentScore2 < 87.0 && studentScore2 >= 83.0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
             fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
-            << setw(16) << GRADE_B;
+            << setw(16) << GRADE_B << left << setw(12) << "";
+
+            letterGradeRemark2 = 'B';
 
             count += 1;
-
-            switch (GRADE_B)
-            {
-                case 'B':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_B << endl;
-                    }
-            }
         }
 
-        else if (studentScore2 < 83 && studentScore2 >= 80)
+        else if (studentScore2 < 83.0 && studentScore2 >= 80.0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
             fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
-            << setw(16) << GRADE_B_MINUS;
+            << setw(16) << GRADE_B_MINUS << left << setw(12) << "";
+
+            letterGradeRemark2 = 'B';
 
             count += 1;
-
-            switch (GRADE_B)
-            {
-                case 'B':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_B << endl;
-                    }
-            }
         }
 
-        else if (studentScore2 < 80 && studentScore2 >= 77)
+        else if (studentScore2 < 80.0 && studentScore2 >= 77.0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
             fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
-            << setw(16) << GRADE_C_PLUS;
+            << setw(16) << GRADE_C_PLUS << left << setw(12) << "";
+
+            letterGradeRemark2 = 'C';
 
             count += 1;
-
-            switch (GRADE_C)
-            {
-                case 'C':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_C << endl;
-                    }
-            }
         }
 
-        else if (studentScore2 < 77 && studentScore2 >= 73)
+        else if (studentScore2 < 77.0 && studentScore2 >= 73.0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
             fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
-            << setw(16) << GRADE_C;
+            << setw(16) << GRADE_C << left << setw(12) << "";
+
+            letterGradeRemark2 = 'C';
 
             count += 1;
-
-            switch (GRADE_C)
-            {
-                case 'C':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_C << endl;
-                    }
-            }
         }
 
-        else if (studentScore2 < 73 && studentScore2 >= 70)
+        else if (studentScore2 < 73.0 && studentScore2 >= 70.0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
             fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
-            << setw(16) << GRADE_C_MINUS;
+            << setw(16) << GRADE_C_MINUS << left << setw(12) << "";
+
+            letterGradeRemark2 = 'C';
 
             count += 1;
-
-            switch (GRADE_C)
-            {
-                case 'C':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_C << endl;
-                    }
-            }
         }
 
-        else if (studentScore2 < 70 && studentScore2 >= 67)
+        else if (studentScore2 < 70.0 && studentScore2 >= 67.0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
             fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
-            << setw(16) << GRADE_D_PLUS;
+            << setw(16) << GRADE_D_PLUS << left << setw(12) << "";
+
+            letterGradeRemark2 = 'D';
             
             count += 1;
-
-            switch (GRADE_D)
-            {
-                case 'D':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_D << endl;
-                    }
-            }
         }
 
-        else if (studentScore2 < 67 && studentScore2 >= 63)
+        else if (studentScore2 < 67.0 && studentScore2 >= 63.0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
             fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
-            << setw(16) << GRADE_D;
+            << setw(16) << GRADE_D << left << setw(12) << "";
+
+            letterGradeRemark2 = 'D';
 
             count += 1;
-
-            switch (GRADE_D)
-            {
-                case 'D':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_D << endl;
-                    }
-            }
         }
 
-        else if (studentScore2 < 63 && studentScore2 >= 60)
+        else if (studentScore2 < 63.0 && studentScore2 >= 60.0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
             fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
-            << setw(16) << GRADE_D_MINUS;
+            << setw(16) << GRADE_D_MINUS << left << setw(12) << "";
+
+            letterGradeRemark2 = 'D';
 
             count += 1;
-
-            switch (GRADE_D)
-            {
-                case 'D':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_D << endl;
-                    }
-            }
         }
 
-        else if (studentScore2 < 60 && studentScore2 > 0)
+        else if (studentScore2 < 60.0 && studentScore2 >= 0.0)
         {
             cout << left << setw(10) << studentId2 << left << setw(30) << 
             fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2 
-            << setw(16) << GRADE_D_MINUS;
+            << setw(16) << GRADE_F << left << setw(12) << "";
+
+            letterGradeRemark2 = 'F';
 
             count += 1;
+        }
 
-            switch (GRADE_F)
+        switch (letterGradeRemark2)
+        {
+            case 'A':
             {
-                case 'F':
-                    {
-                        cout << right << setw(30) << GRADE_REMARK_F << endl;
-                    }
+                cout << left << setw(1) << GRADE_REMARK_A << endl;
+                break;
+            }
+
+            case 'B':
+            {
+                cout << left << setw(1) << GRADE_REMARK_B << endl;
+                break;
+            }
+
+            case 'C':
+            {
+                cout << left << setw(1) << GRADE_REMARK_C << endl;
+                break;
+            }
+
+            case 'D':
+            {
+                cout << left << setw(1) << GRADE_REMARK_D << endl;
+                break;
+            }
+
+            case 'F':
+            {
+                cout << left << setw(1) << GRADE_REMARK_F << endl;
+                break;
             }
         }
     }
 
     else 
     {
-        studentScore2 = 0.00;
+        studentScore2 = 0.0;
 
         cout << left << setw(10) << studentId2 << left << setw(30) << 
         fullName2 << right << setw(10) << studentAge2 << setw(17) << studentScore2
@@ -563,46 +479,50 @@ int main ()
 
     cout << " \n";
 
-    averageScore = (static_cast<double>(studentScore1) + static_cast<double>(studentScore2)) / count;
-
     cout << "========================= CLASS SUMMARY ========================= \n";
 
-    if ((studentScore1 > 0 && studentScore1 <= 100) or (studentScore2 > 0 && studentScore2 <= 100))
+    if (validScore1 && validScore2)
     {
-        if (studentScore1 > 0 && studentScore2 > 0)
-        {
-            cout << left << setw(24) << "Number of valid scores" << right <<": 2\n";
-        }
+        averageScore = (studentScore1 + studentScore2) / 2.0;
 
-        else if (studentScore1 > 0)
-        {
-            cout << left << setw(24) << "Number of valid scores" << right <<": 1\n";
-        }
+        cout << left << setw(24) << "Number of valid scores" << ": 2\n";
+        cout << left << setw(24) << "Average Score" << ": " << averageScore << endl;
+        cout << left << setw(24) << "Maximum Score" << ": " << max(studentScore1, studentScore2) << endl;
+        cout << left << setw(24) << "Minimum Score" << ": " << min(studentScore1, studentScore2) << endl;
+    }
 
-        else if (studentScore2 > 0)
-        {
-            cout << left << setw(24) << "Number of valid scores" << right <<": 1\n";
-        }
+    else if (validScore1)
+    {
+        averageScore = studentScore1;
 
-        cout << left << setw(24) << "Average Score" << left << setw(1) << ": " << averageScore << endl;
-        cout << left << setw(24) << "Maximum Score" << left << setw(1) << ": " 
-        << max(static_cast<double>(studentScore1), static_cast<double>(studentScore2)) << endl;
-        cout << left << setw(24) << "Minimum Score" << left << setw(1) << ": " 
-        << min(static_cast<double>(studentScore1), static_cast<double>(studentScore2)) << endl;
+        cout << left << setw(24) << "Number of valid scores" << ": 1\n";
+        cout << left << setw(24) << "Average Score" << ": " << studentScore1 << endl;
+        cout << left << setw(24) << "Maximum Score" << ": " << studentScore1 << endl;
+        cout << left << setw(24) << "Minimum Score" << ": " << studentScore1 << endl;
+    }
+
+    else if (validScore2)
+    {
+        averageScore = studentScore2;
+
+        cout << left << setw(24) << "Number of valid scores" << ": 1\n";
+        cout << left << setw(24) << "Average Score" << ": " << studentScore2 << endl;
+        cout << left << setw(24) << "Maximum Score" << ": " << studentScore2 << endl;
+        cout << left << setw(24) << "Minimum Score" << ": " << studentScore2 << endl;
     }
 
     else
     {
-        cout << "No valid scores entered. Average, max, and min cannot be computed. \n";
+        cout << "No valid scores entered. Average, max, and min cannot be computed.\n";
     }
 
     cout << " \n";
 
-    cout << "Programmer Name: " << PROGRAMMER_NAME << endl;
-    cout << "Course: " << COURSE_NAME << endl;
-    cout << "Semester: " << SEMESTER << endl;
-    cout << "Project: " << PROJECT << endl;
-    cout << "Due Date: " << DUE_DATE << endl;
+    cout << "Programmer Name: Henrique Magaieski \n"; 
+    cout << "Course: CMSC140 - CRN20808 \n"; 
+    cout << "Semester: Fall 2026 \n";
+    cout << "Project: Project 2 - Grade Calculator \n";
+    cout << "Due Date: 10/12/2026";
 
     cout << " \n";
 
