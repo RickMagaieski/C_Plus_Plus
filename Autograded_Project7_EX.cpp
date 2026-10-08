@@ -9,8 +9,6 @@ int main()
     cyclingMinutes, cyclingCalories, swimmingMinutes, swimmingCalories;
     int choice;
 
-    cout << fixed << showpoint << setprecision(1);
-
     cout << "Fitness Activity Tracker\n";
 
     cout << "\n";
@@ -19,7 +17,7 @@ int main()
 
     cout << "\n";
 
-    cout << "Enter you choice (1 - 4): ";
+    cout << "Enter you choice (1-4): ";
     cin >> choice;
 
     switch (choice)
@@ -28,7 +26,8 @@ int main()
         {
             cout << "\nEnter the time spent jogging in minutes: ";
             cin >> joggingMinutes;
-
+            
+            cout << fixed << showpoint << setprecision(2);
             joggingCalories = 0.75 * joggingMinutes;
 
             cout << "\nCalories burned: " << joggingCalories << endl;
@@ -40,7 +39,8 @@ int main()
         {
             cout << "\nEnter the time spent cycling in minutes: ";
             cin >> cyclingMinutes;
-
+            
+            cout << fixed << showpoint << setprecision(1);
             cyclingCalories = 0.5 * cyclingMinutes;
 
             cout << "\nCalories burned: " << cyclingCalories << endl;
@@ -52,10 +52,10 @@ int main()
         {
             cout << "\nEnter the time spent swimming in minutes: ";
             cin >> swimmingMinutes;
-
+            
             swimmingCalories = 0.8 * swimmingMinutes;
 
-            cout << "\nCalories burned: " << swimmingCalories << endl;
+            cout << "\nCalories burned: " << static_cast<int>(swimmingCalories) << endl;
 
             break;
         }

@@ -34,7 +34,7 @@ int main()
                     {
                         cout << "The season is Fall.";
                     }
-                    else if (month == 12 && month >= 1 && month <= 2)
+                    else if (month == 12 || (month >= 1 && month <= 2))
                     {
                         cout << "The season is Winter.";
                     }
@@ -56,7 +56,7 @@ int main()
                     {
                         cout << "The season is Spring.";
                     }
-                    else if (month == 12 && month >= 1 && month <= 2)
+                    else if (month == 12 || (month >= 1 && month <= 2))
                     {
                         cout << "The season is Summer.";
                     }
@@ -68,7 +68,7 @@ int main()
 
         else 
         {
-            cout << "Please ente a valid month number (1 - 12).";
+            cout << "Please enter a valid month number (1 - 12).";
         }
     }
 
