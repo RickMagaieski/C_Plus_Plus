@@ -12,24 +12,98 @@
 
 #include <iostream>
 #include <string>
-
+#include <iomanip>
 using namespace std;
 
 int main()
 {
-    string name;
-
-    do 
+    while (true)
     {
-        cout << "Enter your name: ";
-        getline(cin, name);
+        string name;
+        char question;
+        int scoreQuantity = 0, count;
+        float total = 0, highest = 0, lowest = 0, score = 0;
+        
+        cout << setprecision(2) << fixed << showpoint;
 
-        if (name == "" or name == " " or name == "  " or name == "   " or name == "    ")
+        do 
         {
-            cout << "Name cannot be empty. Please try again.\n";
+            cout << "Please enter your name: ";
+            getline(cin, name);
+
+            if (name == "" or name == " " or name == "  " or name == "   " or name == "    ")
+            {
+                cout << "Name cannot be empty. Please try again.\n";
+            }
+
+        } while (name == "" or name == " " or name == "  " or name == "   " or name == "    ");
+
+        cout << "Hello, " << name << "!" << endl;
+
+        cout << endl;
+
+        do
+        {    
+            cout << "How many scores will you enter (1 - 30)? ";
+            cin >> scoreQuantity;
+
+            if (scoreQuantity < 1 or scoreQuantity > 30)
+            {
+                cout << "Invalid count. Please enter a value between 1 and 30.\n";
+            }
+
+            cout << endl;
+
+        } while (scoreQuantity < 1 or scoreQuantity > 30);
+
+        for(count = 1; count <= scoreQuantity; count++)
+        {
+            cout << "Enter score #" << count << " (0.00 - 100.00): ";
+            cin >> score;
+
+            if (score < 0.00 or score > 100.00 or score == -0)
+            {
+                cout << "Invalid score. Please enter a value between 0.00 and 100.00.\n";
+                count--;
+            }
+
+            else
+            {
+                total += score;
+            }
         }
 
-    } while (name == "" or name == " " or name == "  " or name == "   " or name == "    ");
+        cout << endl;
 
-    cout << name;
+        cout << "----- Statistics Report -----\n";
+        cout << left << setw(9) << "User: " << right << name << endl;
+        cout << left << setw(9) << "Count: " << right << (count - 1) << endl;
+        cout << left << setw(9) << "Total: " << right << total << endl;
+        cout << left << setw(9) << "Highest: " << right << highest << endl;
+        cout << left << setw(9) << "Lowest: " << right << lowest << endl;
+        cout << "-----------------------------\n";
+
+        cout << endl;
+
+        cout << "Do you want to process another set? (Y/N): ";
+        cin >> question;
+
+        cin.ignore();
+        cout << endl;
+
+        if (question == 'N' or question == 'n')
+        {
+            cout << "Thank you for using the Statistics Calculator. Goodbye!\n";
+
+            cout << endl;
+
+            cout << "Programmer Name: Henrique Magaieski\n" 
+            << "Course: CMSC140 - CRN 20808\n" << "Semester: Fall 2026\n"
+            << "Project: Statistics Calculator\n" << "Due Date: 11/01/2026\n";
+
+            break;
+        }
+    }
+
+    return 0;
 }
