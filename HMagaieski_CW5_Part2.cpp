@@ -21,6 +21,7 @@ int main()
     string name, phoneNumber, address, city, state;
     int zipCode;
     ofstream userInfo;
+    ifstream readUserInfo;
 
     userInfo.open("D:\\List.txt");
 
@@ -55,9 +56,21 @@ int main()
 
     cout << endl;
 
+    userInfo.close();
+    readUserInfo.open("D:\\List.txt");
+
+    getline(readUserInfo, name);
     cout << "Name: " << name << endl;
+
+    getline(readUserInfo, phoneNumber);
     cout << "Phone Number: " << phoneNumber << endl;
+
+    getline(readUserInfo, address);
     cout << "Address: " << address << endl;
+    
+    getline(readUserInfo, city);
+    getline(readUserInfo, state);
+    readUserInfo >> zipCode;
     cout << setw(9) << " " << city << ", " << state << ", " << zipCode;
     
     return 0;
