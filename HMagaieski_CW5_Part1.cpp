@@ -2,7 +2,7 @@
 * Class: CMSC140 CRN 20808
 * Instructor: Mr. Huseyin Aygun
 * Project: Classwork 5 Part 1
-* Description: 
+* Description: This program demonstrates the functionality of `for` loops and what we can do with them.
 * Due Date: 11/02/2026
 * I pledge that I have completed the programming assignment independently.
 * I have not copied the code from a student or any source.
@@ -17,7 +17,7 @@ int main()
 {
     int count = 1;
 
-    cout << "(i)\n";
+    cout << "(I)\n";
 
     cout << endl;
 
@@ -97,7 +97,7 @@ int main()
     cout << endl;
     cout << endl;
 
-    cout << "(V)\n";
+    cout << "(VI)\n";
 
     cout << endl;
 
