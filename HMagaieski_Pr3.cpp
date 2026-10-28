@@ -19,6 +19,12 @@ int main()
 {
     string name;
 
+    cout << endl;
+
+    cout << "Welcome to the Statistics Calculator!\n";
+
+    cout << endl;
+
     do 
         {
             cout << "Please enter your name: ";
@@ -31,6 +37,12 @@ int main()
 
         } while (name == "" or name == " " or name == "  " or name == "   " or name == "    ");
 
+        cout << endl;
+
+        cout << "Hello, " << name << "!" << endl;
+
+        cout << endl;
+
     while (true)
     {
         char question;
@@ -38,17 +50,7 @@ int main()
         float total = 0, highest = 0, lowest = 0, score = 0, average = 0;
         
         cout << setprecision(2) << fixed << showpoint;
-
-        cout << endl;
-
-        cout << "Welcome to the Statistics Caluculator!\n";
-
-        cout << endl;
-
-        cout << "Hello, " << name << "!" << endl;
-
-        cout << endl;
-
+        
         do
         {    
             cout << "How many scores will you enter (1 - 30)? ";
