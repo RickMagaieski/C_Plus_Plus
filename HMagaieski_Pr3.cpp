@@ -47,10 +47,10 @@ int main()
     {
         char question;
         int scoreQuantity = 0, count;
-        float total = 0, highest = 0, lowest = 0, score = 0, average = 0;
+        float total = 0, highest = 0, lowest = 0, score = 0;
         
         cout << setprecision(2) << fixed << showpoint;
-        
+
         do
         {    
             cout << "How many scores will you enter (1 - 30)? ";
