@@ -2,7 +2,7 @@
 * Class: CMSC140 CRN 20808
 * Instructor: Mr. Huseyin Aygun
 * Project: Classwork 6 Part 1
-* Description: 
+* Description: This program asks for two numbers either to subtract or add, and then displays the result.
 * Due Date: 11/16/2026
 * I pledge that I have completed the programming assignment independently.
 * I have not copied the code from a student or any source.
