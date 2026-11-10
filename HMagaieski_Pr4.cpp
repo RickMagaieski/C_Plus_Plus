@@ -13,6 +13,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <iomanip>
 
 using namespace std;
 
@@ -32,8 +33,12 @@ void displayFooter();
 int main()
 {
     ifstream readInfoUser;
-    ofstream writeInfoUser;
-    string inputFileName, outputFileName;
+    ofstream outputOpening;
+    string inputFileName, outputFileName, name;
+    int credits;
+    double costCredit, grade;    
+
+    cout << setprecision(2) << fixed << showpoint;
 
     displayHeader();
 
@@ -45,27 +50,31 @@ int main()
     cout << "\nEnter output file name: ";
     getline(cin, outputFileName);
 
-    if (openInputFile(readInfoUser, inputFileName) 
-    && openOutputFile(writeInfoUser, outputFileName))
+    cout << endl;
+
+    if (openInputFile(readInfoUser, inputFileName))
     {
-        cout << "Aiii, ze da mannngaaa!";
+        cout << "---------------------------------------------";
+
+        while (readStudent (readInfoUser, name, credits, costCredit, grade))
+        {
+            cout << left << setw(36) << "\nStudent Name: " << right << setw(1) << "| " << name << endl << left 
+            << setw(35) << "Credits: " << right << setw(1) << "| " << credits << endl << left << setw(35) 
+            << "Cost/Credit:" << right << setw(1) << "| $" << costCredit << endl << left << setw(35) 
+            << "Grade: " << right << setw(1) << "| " << grade << " " << endl;
+
+            cout << "---------------------------------------------";
+        }
+
+        openOutputFile(outputOpening, outputFileName);
     }
 
     else
     {
         cout << endl;
 
-        if (openInputFile(readInfoUser, inputFileName))
-        {
-            cout << "Error: could not open input file " << inputFileName 
-            << "\nProgram terminated due to input file error.\n";
-        }
-        
-        else if(openOutputFile(writeInfoUser, outputFileName))
-        {
-            cout << "Error: could not open input file " << outputFileName 
-            << "\nProgram terminated due to input file error.\n";
-        }
+        cout << "Error: could not open input file " << inputFileName 
+        << "\nProgram terminated due to input file error.\n";
 
         cout << endl;
 
@@ -114,3 +123,46 @@ void displayFooter()
     << "Course: CMSC140 - CRN 20808\n" << "Semester: Fall 2026\n"
     << "Project: File-Based Report Generator\n" << "Due Date: 11/16/2026\n";
 }
+
+bool openOutputFile (ofstream& outFile, string fileName)
+{
+    bool status;
+
+    outFile.open(fileName);
+
+    if (outFile.is_open())
+    {
+        status = true;
+    }
+
+    else
+    {
+        status = false;
+    }
+
+    return status;
+}
+
+bool readStudent (ifstream& inFile, string& name, int& credits, double& costPerCredit, 
+    double& grade)
+    {
+        bool status;
+    
+        if (inFile >> name >> credits >> costPerCredit >> grade)
+        {
+            status = true;
+        }
+
+        else
+        {
+            status = false;
+        }
+
+        return status;
+    }
+
+    void writeSummary (int validCount, double totalGrades, double minGrade, double maxGrade, ostream& out)
+    {
+        cout << "Ai ze da manga!";
+    }
+    
