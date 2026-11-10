@@ -12,6 +12,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -30,7 +31,49 @@ void displayFooter();
 
 int main()
 {
+    ifstream readInfoUser;
+    ofstream writeInfoUser;
+    string inputFileName, outputFileName;
+
     displayHeader();
+
+    cout << endl;
+
+    cout << "Enter input file name: ";
+    getline(cin, inputFileName);
+
+    cout << "\nEnter output file name: ";
+    getline(cin, outputFileName);
+
+    if (openInputFile(readInfoUser, inputFileName) 
+    && openOutputFile(writeInfoUser, outputFileName))
+    {
+        cout << "Aiii, ze da mannngaaa!";
+    }
+
+    else
+    {
+        cout << endl;
+
+        if (openInputFile(readInfoUser, inputFileName))
+        {
+            cout << "Error: could not open input file " << inputFileName 
+            << "\nProgram terminated due to input file error.\n";
+        }
+        
+        else if(openOutputFile(writeInfoUser, outputFileName))
+        {
+            cout << "Error: could not open input file " << outputFileName 
+            << "\nProgram terminated due to input file error.\n";
+        }
+
+        cout << endl;
+
+        displayFooter();
+
+        cout << endl;
+    }
+
 }
 
 void displayHeader()
@@ -48,5 +91,26 @@ void displayHeader()
 
 bool openInputFile (ifstream& inFile, string fileName)
 {
-    
+    bool status;
+
+    inFile.open(fileName);
+
+    if (inFile.is_open())
+    {
+        status = true;
+    }
+
+    else
+    {
+        status = false;
+    }
+
+    return status;
+}
+
+void displayFooter()
+{
+    cout << "Programmer Name: Henrique Magaieski\n" 
+    << "Course: CMSC140 - CRN 20808\n" << "Semester: Fall 2026\n"
+    << "Project: File-Based Report Generator\n" << "Due Date: 11/16/2026\n";
 }
