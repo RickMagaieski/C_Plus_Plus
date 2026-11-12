@@ -27,7 +27,7 @@ void computeStudentInfo (int credits, double costPerCredit, double grade, char& 
      string& standing, double& totalDue);
 void writeStudentReport (string name, int credits, double costPerCredit, double grade, 
     char letter, string standing, double totalDue, ostream& out);
-void writeSummary (int validCount, double totalGrades, double minGrade, double maxGrade, ostream& out);
+void writeSummary (int validCount, double totalGrades, double minGrade, double maxGrade);
 void displayFooter();
 
 
@@ -37,8 +37,9 @@ int main()
     ofstream outputOpening;
     string inputFileName, outputFileName, name, gradeStanding;
     char letterGrade;
-    int credits, validCount;
-    double costCredit, grade, totalDue;    
+    int credits = 0, validCount = 0;
+    double costCredit = 0.00, grade = 0.00, totalDue = 0.00, gradeHolderMax = 0.00, 
+    gradeHolderMin = 0.00, average = 0.00;    
 
     cout << setprecision(2) << fixed << showpoint;
 
@@ -61,7 +62,6 @@ int main()
 
         while (readStudent (readInfoUser, name, credits, costCredit, grade))
         {
-        
             computeStudentInfo(credits, costCredit, grade, letterGrade, gradeStanding, totalDue);
 
             cout << left << setw(31) << "\nStudent Name: " << right << setw(1) << "| " << name << endl << left 
@@ -72,7 +72,31 @@ int main()
             << left << setw(31) << "\nTotal Due: " << right << setw(1) << "| " << "$" << totalDue << endl;
 
             cout << "---------------------------------------------";
+
+            validCount++;
+            average += grade;
+
+            if (validCount == 1)
+            {
+                gradeHolderMin = grade;
+                gradeHolderMax = grade;
+            }
+            else
+            {
+                if (grade < gradeHolderMin)
+                    gradeHolderMin = grade;
+
+                if (grade > gradeHolderMax)
+                    gradeHolderMax = grade;
+            }
+           
+            writeStudentReport (name, credits, costCredit, grade, letterGrade, gradeStanding, 
+            totalDue, outputOpening);
         }
+
+        writeSummary(validCount, average, gradeHolderMin, gradeHolderMax);
+
+        cout << "Report also written to: " << outputFileName << endl;
 
         cout << endl;
 
@@ -233,10 +257,30 @@ void computeStudentInfo (int credits, double costPerCredit, double grade, char& 
      }
 
 void writeSummary (int validCount, double totalGrades, 
-    double minGrade, double maxGrade, ostream& out)
+    double minGrade, double maxGrade)
 {
-    validCount++;
-    totalGrades += totalGrades;
+    cout << endl;
 
+        cout << "========== Summary Report ==========\n";
+        cout << "Valid Students: " << validCount << endl;
+        cout << "Average Grade: " << totalGrades / validCount << endl;
+        cout << "Min Grade: " << minGrade << endl;
+        cout << "Max Grade: " << maxGrade << endl;
+        cout << "====================================\n";
 
+    cout << endl;
 }
+
+void writeStudentReport (string name, int credits, double costPerCredit, double grade, 
+    char letter, string standing, double totalDue, ostream& out)
+    {
+        out << name << endl;
+        out << credits << endl;
+        out << costPerCredit << endl;
+        out << grade << endl;
+        out << letter << endl;
+        out << standing << endl;
+        out << totalDue << endl;
+
+        cout << endl;
+    }
