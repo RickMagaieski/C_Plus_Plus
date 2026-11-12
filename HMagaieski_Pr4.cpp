@@ -14,6 +14,7 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
+#include <algorithm>
 
 using namespace std;
 
@@ -34,9 +35,10 @@ int main()
 {
     ifstream readInfoUser;
     ofstream outputOpening;
-    string inputFileName, outputFileName, name;
-    int credits;
-    double costCredit, grade;    
+    string inputFileName, outputFileName, name, gradeStanding;
+    char letterGrade;
+    int credits, validCount;
+    double costCredit, grade, totalDue;    
 
     cout << setprecision(2) << fixed << showpoint;
 
@@ -52,21 +54,31 @@ int main()
 
     cout << endl;
 
-    if (openInputFile(readInfoUser, inputFileName))
+    if (openInputFile(readInfoUser, inputFileName) 
+    && openOutputFile(outputOpening, outputFileName))
     {
         cout << "---------------------------------------------";
 
         while (readStudent (readInfoUser, name, credits, costCredit, grade))
         {
-            cout << left << setw(36) << "\nStudent Name: " << right << setw(1) << "| " << name << endl << left 
-            << setw(35) << "Credits: " << right << setw(1) << "| " << credits << endl << left << setw(35) 
-            << "Cost/Credit:" << right << setw(1) << "| $" << costCredit << endl << left << setw(35) 
-            << "Grade: " << right << setw(1) << "| " << grade << " " << endl;
+        
+            computeStudentInfo(credits, costCredit, grade, letterGrade, gradeStanding, totalDue);
+
+            cout << left << setw(31) << "\nStudent Name: " << right << setw(1) << "| " << name << endl << left 
+            << setw(30) << "Credits: " << right << setw(1) << "| " << credits << endl << left << setw(30) 
+            << "Cost/Credit:" << right << setw(1) << "| $" << costCredit << endl << left << setw(30) 
+            << "Grade: " << right << setw(1) << "| " << grade << " " << "(" << letterGrade << ")"
+            << left << setw(31) << "\nStanding: " << right << setw(1) << "| " << gradeStanding 
+            << left << setw(31) << "\nTotal Due: " << right << setw(1) << "| " << "$" << totalDue << endl;
 
             cout << "---------------------------------------------";
         }
 
-        openOutputFile(outputOpening, outputFileName);
+        cout << endl;
+
+        displayFooter();
+
+        cout << endl;
     }
 
     else
@@ -160,9 +172,71 @@ bool readStudent (ifstream& inFile, string& name, int& credits, double& costPerC
 
         return status;
     }
-
-    void writeSummary (int validCount, double totalGrades, double minGrade, double maxGrade, ostream& out)
-    {
-        cout << "Ai ze da manga!";
-    }
     
+void computeStudentInfo (int credits, double costPerCredit, double grade, char& letter,
+     string& standing, double& totalDue)
+     {
+        totalDue = (credits * costPerCredit) + 75.00;
+
+        if (grade >= 0 && grade <= 100.00)
+        {
+            if (grade >= 90.00 && grade <= 100.00)
+            {
+                letter = 'A';
+            }
+            if (grade >= 80.00 && grade < 90.00)
+            {
+                letter = 'B';
+            }
+            if (grade >= 70.00 && grade < 80.00)
+            {
+                letter = 'C';
+            }
+            if (grade >= 60.00 && grade < 70.00)
+            {
+                letter = 'D';
+            }
+            if (grade >= 0 && grade < 60.00)
+            {
+                letter = 'F';
+            }
+        }
+        
+        else
+        {
+            cout << "Invalid Input";
+        }
+
+        if (grade >= 0 && grade <= 100.00)
+        {
+            if (grade >= 70.00 && grade <= 100.00)
+            {
+                standing = "Good Standing";
+            }
+
+            if (grade >= 60.00 && grade < 70.00)
+            {
+                standing = "Academic Warning";
+            }
+
+            if (grade >= 0 && grade < 60.00)
+            {
+                standing = "See Advisor";
+            }
+        }
+
+        else 
+        {
+            cout << "Invalid Input";
+        }
+
+     }
+
+void writeSummary (int validCount, double totalGrades, 
+    double minGrade, double maxGrade, ostream& out)
+{
+    validCount++;
+    totalGrades += totalGrades;
+
+
+}
