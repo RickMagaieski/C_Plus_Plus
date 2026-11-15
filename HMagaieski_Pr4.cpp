@@ -300,13 +300,13 @@ void writeSummary (int validCount, double totalGrades,
     if (validCount > 0)
     {
         cout << "Average Grade: " << totalGrades / validCount << endl;
+        cout << "Min Grade: " << minGrade << endl;
+        cout << "Max Grade: " << maxGrade << endl;
     }    
     else
     {
         cout << "Average Grade: (N/A)" << endl; 
     }
-    cout << "Min Grade: " << minGrade << endl;
-    cout << "Max Grade: " << maxGrade << endl;
     cout << "====================================\n";
 
     cout << endl;
@@ -319,13 +319,13 @@ void writeSummary (int validCount, double totalGrades,
     if (validCount > 0)
     {
         out << "Average Grade: " << totalGrades / validCount << endl;
+        out << "Min Grade: " << minGrade << " " << endl;
+        out << "Max Grade: " << maxGrade << endl;
     }    
     else
     {
         out << "Average Grade: (N/A)" << endl; 
     }
-    out << "Min Grade: " << minGrade << " " << endl;
-    out << "Max Grade: " << maxGrade << endl;
     out << "====================================\n";
 }
 
