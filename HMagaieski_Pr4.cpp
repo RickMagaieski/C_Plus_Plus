@@ -327,6 +327,8 @@ void writeSummary (int validCount, double totalGrades,
     else
     {
         out << "Average Grade: (N/A)" << endl; 
+        out << "Min Grade: (N/A)" << " " << endl;
+        out << "Max Grade: (N/A)" << endl;
     }
     out << "====================================\n";
 }
