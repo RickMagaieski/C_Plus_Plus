@@ -29,7 +29,7 @@ Total Due:                    | $1425.00
 ========== Summary Report ==========
 Valid Students: 3 
 Invalid Students: 0 
-Average Grade: 79.50 
+Average Grade: 79.50
 Min Grade: 58.00 
 Max Grade: 92.00
 ====================================

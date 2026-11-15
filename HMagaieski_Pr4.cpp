@@ -70,6 +70,8 @@ int main()
                 
                 else
                 {
+                    computeStudentInfo(credits, costCredit, grade, letterGrade, gradeStanding, totalDue);
+
                     writeStudentReport (name, credits, costCredit, grade, letterGrade, gradeStanding, 
                     totalDue, outputOpening);
 
@@ -81,6 +83,7 @@ int main()
                         gradeHolderMin = grade;
                         gradeHolderMax = grade;
                     }
+
                     else
                     {
                         if (grade < gradeHolderMin)
@@ -172,7 +175,7 @@ void displayFooter()
 {
     cout << "Programmer Name: Henrique Magaieski\n" 
     << "Course: CMSC140 - CRN 20808\n" << "Semester: Fall 2026\n"
-    << "Project: File-Based Report Generator\n" << "Due Date: 11/16/2026\n";
+    << "Project: MC File-Based Student Report Generator\n" << "Due Date: 11/16/2026\n";
 }
 
 bool openOutputFile (ofstream& outFile, string fileName)
@@ -330,8 +333,6 @@ void writeStudentReport (string name, int credits, double costPerCredit, double 
     char letter, string standing, double totalDue, ostream& out)
     {
         out << setprecision(2) << fixed << showpoint;
-
-        computeStudentInfo(credits, costPerCredit, grade, letter, standing, totalDue);
 
         cout << left << setw(31) << "\nStudent Name: " << right << setw(1) << "| " << name << endl;
         cout << left << setw(30) << "Credits: " << right << setw(1) << "| " << credits << endl; 
