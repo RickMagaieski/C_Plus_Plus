@@ -305,7 +305,9 @@ void writeSummary (int validCount, double totalGrades,
     }    
     else
     {
-        cout << "Average Grade: (N/A)" << endl; 
+        cout << "Average Grade: (N/A)" << endl;
+        cout << "Min Grade: (N/A)" << endl;
+        cout << "Max Grade: (N/A)" << endl;
     }
     cout << "====================================\n";
 
