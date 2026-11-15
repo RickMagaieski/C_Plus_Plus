@@ -1,6 +1,0 @@
-
-========== Summary Report ==========
-Valid Students: 0 
-Invalid Students: 2 
-Average Grade: (N/A)
-====================================
