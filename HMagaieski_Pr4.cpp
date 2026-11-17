@@ -14,7 +14,6 @@
 #include <fstream>
 #include <string>
 #include <iomanip>
-#include <algorithm>
 
 using namespace std;
 
@@ -27,9 +26,10 @@ void computeStudentInfo (int credits, double costPerCredit, double grade, char& 
      string& standing, double& totalDue);
 void writeStudentReport (string name, int credits, double costPerCredit, double grade, 
     char letter, string standing, double totalDue, ostream& out);
-void writeSummary (int validCount, double totalGrades, double minGrade, double maxGrade);
+void writeSummary (int validCount, double totalGrades, double minGrade, double maxGrade, ostream& out);
 void displayFooter();
 
+int invalidCount = 0;
 
 int main()
 {
@@ -55,54 +55,72 @@ int main()
 
     cout << endl;
 
-    if (openInputFile(readInfoUser, inputFileName) 
-    && openOutputFile(outputOpening, outputFileName))
+    if (openInputFile(readInfoUser, inputFileName))
     {
-        cout << "---------------------------------------------";
-
-        while (readStudent (readInfoUser, name, credits, costCredit, grade))
+        if (openOutputFile(outputOpening, outputFileName))
         {
-            computeStudentInfo(credits, costCredit, grade, letterGrade, gradeStanding, totalDue);
-
-            cout << left << setw(31) << "\nStudent Name: " << right << setw(1) << "| " << name << endl << left 
-            << setw(30) << "Credits: " << right << setw(1) << "| " << credits << endl << left << setw(30) 
-            << "Cost/Credit:" << right << setw(1) << "| $" << costCredit << endl << left << setw(30) 
-            << "Grade: " << right << setw(1) << "| " << grade << " " << "(" << letterGrade << ")"
-            << left << setw(31) << "\nStanding: " << right << setw(1) << "| " << gradeStanding 
-            << left << setw(31) << "\nTotal Due: " << right << setw(1) << "| " << "$" << totalDue << endl;
-
             cout << "---------------------------------------------";
 
-            validCount++;
-            average += grade;
-
-            if (validCount == 1)
+            while (readStudent (readInfoUser, name, credits, costCredit, grade))
             {
-                gradeHolderMin = grade;
-                gradeHolderMax = grade;
-            }
-            else
-            {
-                if (grade < gradeHolderMin)
-                    gradeHolderMin = grade;
+                if (credits <= 0 || costCredit <= 0 || grade < 0 || grade > 100)
+                {
+                    invalidCount++;
+                }
+                
+                else
+                {
+                    computeStudentInfo(credits, costCredit, grade, letterGrade, gradeStanding, totalDue);
 
-                if (grade > gradeHolderMax)
-                    gradeHolderMax = grade;
+                    writeStudentReport (name, credits, costCredit, grade, letterGrade, gradeStanding, 
+                    totalDue, outputOpening);
+
+                    validCount++;
+                    average += grade;
+
+                    if (validCount == 1)
+                    {
+                        gradeHolderMin = grade;
+                        gradeHolderMax = grade;
+                    }
+
+                    else
+                    {
+                        if (grade < gradeHolderMin)
+                            gradeHolderMin = grade;
+
+                        if (grade > gradeHolderMax)
+                            gradeHolderMax = grade;
+                    }
+                }
             }
-           
-            writeStudentReport (name, credits, costCredit, grade, letterGrade, gradeStanding, 
-            totalDue, outputOpening);
+
+            cout << endl;
+
+            writeSummary(validCount, average, gradeHolderMin, gradeHolderMax, outputOpening);
+
+            cout << "Report also written to: " << outputFileName << endl;
+
+            cout << endl;
+
+            displayFooter();
+
+            cout << endl;
         }
 
-        writeSummary(validCount, average, gradeHolderMin, gradeHolderMax);
+        else
+        {
+            cout << endl;
 
-        cout << "Report also written to: " << outputFileName << endl;
+            cout << "Error: could not open output file " << outputFileName
+            << "\nProgram terminated due to output file error.\n";
 
-        cout << endl;
+            cout << endl;
 
-        displayFooter();
+            displayFooter();
 
-        cout << endl;
+            cout << endl;
+        }
     }
 
     else
@@ -157,7 +175,7 @@ void displayFooter()
 {
     cout << "Programmer Name: Henrique Magaieski\n" 
     << "Course: CMSC140 - CRN 20808\n" << "Semester: Fall 2026\n"
-    << "Project: File-Based Report Generator\n" << "Due Date: 11/16/2026\n";
+    << "Project: MC File-Based Student Report Generator\n" << "Due Date: 11/16/2026\n";
 }
 
 bool openOutputFile (ofstream& outFile, string fileName)
@@ -191,7 +209,18 @@ bool readStudent (ifstream& inFile, string& name, int& credits, double& costPerC
 
         else
         {
-            status = false;
+            if (!inFile.eof())
+            {
+                inFile.clear();
+                inFile.ignore(10000, '\n');
+
+                credits = -1;
+                status = true;
+            }
+            else
+            {
+                status = false;
+            }
         }
 
         return status;
@@ -200,9 +229,11 @@ bool readStudent (ifstream& inFile, string& name, int& credits, double& costPerC
 void computeStudentInfo (int credits, double costPerCredit, double grade, char& letter,
      string& standing, double& totalDue)
      {
+        cout << setprecision(2) << fixed << showpoint;
+
         totalDue = (credits * costPerCredit) + 75.00;
 
-        if (grade >= 0 && grade <= 100.00)
+        if (grade >= 0.00 && grade <= 100.00)
         {
             if (grade >= 90.00 && grade <= 100.00)
             {
@@ -220,7 +251,7 @@ void computeStudentInfo (int credits, double costPerCredit, double grade, char& 
             {
                 letter = 'D';
             }
-            if (grade >= 0 && grade < 60.00)
+            if (grade >= 0.00 && grade < 60.00)
             {
                 letter = 'F';
             }
@@ -231,7 +262,7 @@ void computeStudentInfo (int credits, double costPerCredit, double grade, char& 
             cout << "Invalid Input";
         }
 
-        if (grade >= 0 && grade <= 100.00)
+        if (grade >= 0.00 && grade <= 100.00)
         {
             if (grade >= 70.00 && grade <= 100.00)
             {
@@ -243,7 +274,7 @@ void computeStudentInfo (int credits, double costPerCredit, double grade, char& 
                 standing = "Academic Warning";
             }
 
-            if (grade >= 0 && grade < 60.00)
+            if (grade >= 0.00 && grade < 60.00)
             {
                 standing = "See Advisor";
             }
@@ -257,30 +288,73 @@ void computeStudentInfo (int credits, double costPerCredit, double grade, char& 
      }
 
 void writeSummary (int validCount, double totalGrades, 
-    double minGrade, double maxGrade)
+    double minGrade, double maxGrade, ostream& out)
 {
+    out << setprecision(2) << fixed << showpoint;
+
     cout << endl;
 
-        cout << "========== Summary Report ==========\n";
-        cout << "Valid Students: " << validCount << endl;
+    cout << "========== Summary Report ==========\n";
+    cout << "Valid Students: " << validCount << endl;
+    cout << "Invalid Students: " << invalidCount << endl;
+    if (validCount > 0)
+    {
         cout << "Average Grade: " << totalGrades / validCount << endl;
         cout << "Min Grade: " << minGrade << endl;
         cout << "Max Grade: " << maxGrade << endl;
-        cout << "====================================\n";
+    }    
+    else
+    {
+        cout << "Average Grade: (N/A)" << endl;
+        cout << "Min Grade: (N/A)" << endl;
+        cout << "Max Grade: (N/A)" << endl;
+    }
+    cout << "====================================\n";
 
     cout << endl;
+
+    out << endl;
+
+    out << "========== Summary Report ==========\n";
+    out << "Valid Students: " << validCount << " " << endl;
+    out << "Invalid Students: " << invalidCount << " " << endl;
+    if (validCount > 0)
+    {
+        out << "Average Grade: " << totalGrades / validCount << endl;
+        out << "Min Grade: " << minGrade << " " << endl;
+        out << "Max Grade: " << maxGrade << endl;
+    }    
+    else
+    {
+        out << "Average Grade: (N/A)" << endl; 
+        out << "Min Grade: (N/A)" << " " << endl;
+        out << "Max Grade: (N/A)" << endl;
+    }
+    out << "====================================\n";
 }
 
 void writeStudentReport (string name, int credits, double costPerCredit, double grade, 
     char letter, string standing, double totalDue, ostream& out)
     {
-        out << name << endl;
-        out << credits << endl;
-        out << costPerCredit << endl;
-        out << grade << endl;
-        out << letter << endl;
-        out << standing << endl;
-        out << totalDue << endl;
+        out << setprecision(2) << fixed << showpoint;
 
-        cout << endl;
+        cout << left << setw(31) << "\nStudent Name: " << right << setw(1) << "| " << name << endl;
+        cout << left << setw(30) << "Credits: " << right << setw(1) << "| " << credits << endl; 
+        cout << left << setw(30) << "Cost/Credit:" << right << setw(1) << "| $" << costPerCredit << endl; 
+        cout << left << setw(30) << "Grade: " << right << setw(1) << "| " << grade << " " << "(" << letter << ")" << endl;
+        cout << left << setw(30) << "Standing: " << right << setw(1) << "| " << standing << endl; 
+        cout << left << setw(30) << "Total Due: " << right << setw(1) << "| " << "$" << totalDue << endl;
+
+        cout << "---------------------------------------------\n";
+
+        out << left << setw(31) << "\nStudent Name: " << right << setw(1) << "| " << name << endl;
+        out << left << setw(30) << "Credits: " << right << setw(1) << "| " << credits << endl; 
+        out << left << setw(30) << "Cost/Credit:" << right << setw(1) << "| $" << costPerCredit << endl; 
+        out << left << setw(30) << "Grade: " << right << setw(1) << "| " << grade << " " << "(" << letter << ")" << endl;
+        out << left << setw(30) << "Standing: " << right << setw(1) << "| " << standing << endl; 
+        out << left << setw(30) << "Total Due: " << right << setw(1) << "| " << "$" << totalDue << endl;
+        
+        out << "---------------------------------------------\n";
+
+        out << endl;
     }
