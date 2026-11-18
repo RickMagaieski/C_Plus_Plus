@@ -1,7 +1,7 @@
 /*
 * Class: CMSC140 CRN 20808
 * Instructor: Mr. Huseyin Aygun
-* Project: Classwork 6 Part 2
+* Project: Classwork 7
 * Description: This program prints the numbers tha are bigger than the user's name based on the numbers inside the array
 * Due Date: 11/30/2026
 * I pledge that I have completed the programming assignment independently.
