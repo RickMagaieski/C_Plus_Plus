@@ -1,3 +1,15 @@
+/*
+* Class: CMSC140 CRN 20808
+* Instructor: Mr. Huseyin Aygun
+* Project: Classwork 6 Part 2
+* Description: This program prints the numbers tha are bigger than the user's name based on the numbers inside the array
+* Due Date: 11/30/2026
+* I pledge that I have completed the programming assignment independently.
+* I have not copied the code from a student or any source.
+* I have not given my code to any student.
+* Print your Name here: Henrique Magaieski
+*/
+
 #include <iostream>
 using namespace std;
 
@@ -34,24 +46,7 @@ void largerThanN(int array[], int counter, int user)
     {
         if (array[counter] > user)
         {
-            int a;
-
-            for (int counter2; counter2 < 10; counter2++)
-            {
-                if (array[counter2] == 0)
-                {
-                    a = array[counter2];
-                    
-                    cout << a;
-                }
-
-                if (array[counter2] < a)
-                {
-                    a = array[counter2];
-
-                    cout << a;
-                }
-            }
+            cout << array[counter] << " ";
         }
         else if (user > array[counter] && counter == 10)
         {
