@@ -17,7 +17,8 @@ void displayFooter(); //Displays the footer
 int main()
 {
     string studentName;
-    int scoresArray[50], counting, chosenAmountScores;
+    double scoresArray[50];
+    int userInput;
 
     cout << endl;
 
@@ -50,7 +51,6 @@ int main()
     cout << endl;
 
 
-
     return 0;
 
 }
@@ -59,14 +59,17 @@ int getValidateInt(int minVal, int maxVal)
 {
     int userInput;
 
+    cout << "Enter you choice: ";
+
     do
     {
-        cout << "Enter you choice: ";
         cin >> userInput;
+
+        cout << endl;
 
         if (userInput < minVal || userInput > maxVal)
         {
-            cout << "\nInvalid menu choice. Please enter 1-5 or Q.";
+            cout << "Invalid menu choice. Please enter 1-5 or Q: ";
         }
 
     } while (userInput < minVal || userInput > maxVal);
@@ -78,9 +81,10 @@ double getValidatedScore(double minVal, double maxVal)
 {
     double userInput;
 
+    cout << "How many scores do you want to enter (1 - 50)?\n";
+
     do
     {
-        cout << "How many scores do you want to enter (1 - 50)?\n";
         cout << "Enter count: ";
         cin >> userInput;
 
@@ -89,15 +93,9 @@ double getValidatedScore(double minVal, double maxVal)
             cout << "\nInvalid value. Please enter a value between 1 and 50.";
         }
 
+        cout << endl;
+
     } while (userInput < minVal || userInput > maxVal);
 
     return userInput;
-}
-
-void inputScores(double scores[], int &count, int maxSize)
-{
-    for (count = 0; count < maxSize; count++)
-    {
-
-    }
 }
